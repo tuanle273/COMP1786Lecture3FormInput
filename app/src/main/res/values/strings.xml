@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">COMP1786Lecture3FormInput</string>
+    <string-array name="workStatusArray">
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Unemployment</item>
+    </string-array>
+    <string name="next_command_prompt">Next</string>
+    <string name="exit_command_label">Exit</string>
+    <string name="buttonSave">Save</string>
+</resources>
