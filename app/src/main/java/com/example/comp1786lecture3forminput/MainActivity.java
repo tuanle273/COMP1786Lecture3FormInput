@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioButton;
     private String radioText="";
+    private String radioText2="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 RadioButton radioButton = findViewById(radioGroup.getCheckedRadioButtonId());
                 radioText = radioButton.getText().toString();
+            }
+        });
+        radioGroup = (RadioGroup) findViewById(R.id.radio2);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton radioButton = findViewById(radioGroup.getCheckedRadioButtonId());
+                radioText2 = radioButton.getText().toString();
             }
         });
 
@@ -97,24 +106,26 @@ public class MainActivity extends AppCompatActivity {
         TextView dobText = (TextView) findViewById(R.id.inputDob);
         spinnerWorkStatus = findViewById(R.id.spinnerWorkStatus);
         radioGroup = findViewById(R.id.radio);
-
+        radioGroup = findViewById(R.id.radio2);
         String strName = nameInput.getText().toString();
         String strPhone = phoneInput.getText().toString();
         String strEmail = emailInput.getText().toString();
         String strDob = dobText.getText().toString();
         String strWork = spinnerWorkStatus.getSelectedItem().toString();
 
-        displayNextAlert(strName, strPhone, strEmail, radioText, strDob, strWork);
+        displayNextAlert(strName, strPhone, strEmail, radioText, strDob, strWork, radioText2);
     }
 
-    private void displayNextAlert(String strName, String strPhone, String strEmail, String strWork, String dobText, String radio){
+    private void displayNextAlert(String strName, String strPhone, String strEmail, String strWork, String dobText, String radio, String radio2){
         new AlertDialog.Builder(this).setTitle("Details entered").setMessage("Details entered: " +
-                "\n" + strName +
-                "\n" + strPhone +
-                "\n" + strEmail +
-                "\n" + strWork +
-                "\n" + dobText +
-                "\n" + radio
+                "\n Name:" + strName +
+                "\n Gender:" + radio2 +
+                "\n Phone:" + strPhone +
+                "\n Email:" + strEmail +
+                "\n Status:" + strWork +
+                "\n DayOfBirth:" + dobText +
+                "\n Status:" + radio
+
 
         )
 
